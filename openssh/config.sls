@@ -78,7 +78,7 @@ ssh_host_{{ keyType }}_key-cert.pub:
   file.absent:
     - name: /etc/ssh/{{ certType }}_ca.pub:
 {% elif salt['pillar.get']('openssh:provide_' ~ keyType ~ '_' ~ certType ~ '_ca', False) %}
-{{ certType }}_ca.pub:
+{{ keyType }}_{{ certType }}_ca.pub:
   file.managed:
     - name: /etc/ssh/{{ keyType }}_{{ certType }}_ca.pub
     - contents_pillar: 'openssh:{{ keyType }}:{{ certType }}_ca:public_key'
