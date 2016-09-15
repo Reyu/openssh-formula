@@ -105,6 +105,8 @@ openssh:
       -----END DSA PRIVATE KEY-----
     public_key: |
       ssh-dss NOT_DEFINED
+    cert_key: |
+      ssh-dss NOT_DEFINED
 
   generate_ecdsa_keys: False
   absent_ecdsa_keys: False
@@ -115,6 +117,8 @@ openssh:
       NOT_DEFINED
       -----END EC PRIVATE KEY-----
     public_key: |
+      ecdsa-sha2-nistp256 NOT_DEFINED
+    cert_key: |
       ecdsa-sha2-nistp256 NOT_DEFINED
 
   generate_rsa_keys: False
@@ -128,6 +132,8 @@ openssh:
       -----END RSA PRIVATE KEY-----
     public_key: |
       ssh-rsa NOT_DEFINED
+    cert_key: |
+      ssh-rsa NOT_DEFINED
 
   generate_ed25519_keys: False
   absent_ed25519_keys: False
@@ -138,6 +144,8 @@ openssh:
       NOT_DEFINED
       -----END OPENSSH PRIVATE KEY-----
     public_key: |
+      ssh-ed25519 NOT_DEFINED
+    cert_key: |
       ssh-ed25519 NOT_DEFINED
 
   known_hosts:

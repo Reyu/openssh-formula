@@ -61,5 +61,14 @@ ssh_host_{{ keyType }}_key.pub:
     - mode: 600
     - require_in:
       - service: {{ openssh.service }}
+
+ssh_host_{{ keyType }}_key-cert.pub:
+  file.managed:
+    - name: /etc/ssh/ssh_host_{{ keyType }}_key-cert.pub
+    - contents_pillar: 'openssh:{{ keyType }}:cert_key'
+    - user: root
+    - mode: 600
+    - require_in:
+      - service: {{ openssh.service }}
 {% endif %}
 {% endfor %}
