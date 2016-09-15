@@ -98,6 +98,7 @@ openssh:
   generate_dsa_keys: False
   absent_dsa_keys: False
   provide_dsa_keys: False
+  provide_dsa_certs: False
   dsa:
     private_key: |
       -----BEGIN DSA PRIVATE KEY-----
@@ -111,6 +112,7 @@ openssh:
   generate_ecdsa_keys: False
   absent_ecdsa_keys: False
   provide_ecdsa_keys: False
+  provide_ecdsa_certs: False
   ecdsa:
     private_key: |
       -----BEGIN EC PRIVATE KEY-----
@@ -125,6 +127,7 @@ openssh:
   generate_rsa_size: 4096
   absent_rsa_keys: False
   provide_rsa_keys: False
+  provide_rsa_certs: False
   rsa:
     private_key: |
       -----BEGIN RSA PRIVATE KEY-----
@@ -138,6 +141,7 @@ openssh:
   generate_ed25519_keys: False
   absent_ed25519_keys: False
   provide_ed25519_keys: False
+  provide_ed25519_certs: False
   ed25519:
     private_key: |
       -----BEGIN OPENSSH PRIVATE KEY-----
