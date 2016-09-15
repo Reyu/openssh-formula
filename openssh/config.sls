@@ -72,5 +72,21 @@ ssh_host_{{ keyType }}_key-cert.pub:
     - require_in:
       - service: {{ openssh.service }}
 {% endif %}
+{% for certType in ['host','user'] %}
+{% if salt['pillar.get']('openssh:absent_' ~ keyType ~ '_' ~ certType ~ '_ca', False) %}
+{{ certType }}_ca.pub:
+  file.absent:
+    - name: /etc/ssh/{{ certType }}_ca.pub:
+{% elif salt['pillar.get']('openssh:provide_' ~ keyType ~ '_' ~ certType ~ '_ca', False) %}
+{{ certType }}_ca.pub:
+  file.managed:
+    - name: /etc/ssh/{{ keyType }}_{{ certType }}_ca.pub
+    - contents_pillar: 'openssh:{{ keyType }}:{{ certType }}_ca:public_key'
+    - user: root
+    - mode: 600
+    - require_in:
+      - service: {{ openssh.service }}
+{% endif %}
+{% endfor %}
 {% endif %}
 {% endfor %}

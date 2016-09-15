@@ -97,8 +97,13 @@ openssh:
 
   generate_dsa_keys: False
   absent_dsa_keys: False
+  absent_dsa_certs: False
+  absent_dsa_host_ca: False
+  absent_dsa_user_ca: False
   provide_dsa_keys: False
   provide_dsa_certs: False
+  provide_dsa_host_ca: False
+  provide_dsa_user_ca: False
   dsa:
     private_key: |
       -----BEGIN DSA PRIVATE KEY-----
@@ -108,11 +113,30 @@ openssh:
       ssh-dss NOT_DEFINED
     cert_key: |
       ssh-dss NOT_DEFINED
+    host_ca: 
+      private_key: |
+        -----BEGIN DSA PRIVATE KEY-----
+        NOT_DEFINED
+        -----END DSA PRIVATE KEY-----
+      public_key: |
+        ssh-dss NOT_DEFINED
+    user_ca: 
+      private_key: |
+        -----BEGIN DSA PRIVATE KEY-----
+        NOT_DEFINED
+        -----END DSA PRIVATE KEY-----
+      public_key: |
+        ssh-dss NOT_DEFINED
 
   generate_ecdsa_keys: False
   absent_ecdsa_keys: False
+  absent_ecdsa_certs: False
+  absent_ecdsa_host_ca: False
+  absent_ecdsa_user_ca: False
   provide_ecdsa_keys: False
   provide_ecdsa_certs: False
+  provide_ecdsa_host_ca: False
+  provide_ecdsa_user_ca: False
   ecdsa:
     private_key: |
       -----BEGIN EC PRIVATE KEY-----
@@ -122,12 +146,31 @@ openssh:
       ecdsa-sha2-nistp256 NOT_DEFINED
     cert_key: |
       ecdsa-sha2-nistp256 NOT_DEFINED
+    host_ca: 
+      private_key: |
+        -----BEGIN EC PRIVATE KEY-----
+        NOT_DEFINED
+        -----END EC PRIVATE KEY-----
+      public_key: |
+        ecdsa-sha2-nistp256 NOT_DEFINED
+    user_ca: 
+      private_key: |
+        -----BEGIN EC PRIVATE KEY-----
+        NOT_DEFINED
+        -----END EC PRIVATE KEY-----
+      public_key: |
+        ecdsa-sha2-nistp256 NOT_DEFINED
 
   generate_rsa_keys: False
   generate_rsa_size: 4096
   absent_rsa_keys: False
+  absent_rsa_certs: False
+  absent_rsa_host_ca: False
+  absent_rsa_user_ca: False
   provide_rsa_keys: False
   provide_rsa_certs: False
+  provide_rsa_host_ca: False
+  provide_rsa_user_ca: False
   rsa:
     private_key: |
       -----BEGIN RSA PRIVATE KEY-----
@@ -137,11 +180,30 @@ openssh:
       ssh-rsa NOT_DEFINED
     cert_key: |
       ssh-rsa NOT_DEFINED
+    host_ca: 
+      private_key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        NOT_DEFINED
+        -----END RSA PRIVATE KEY-----
+      public_key: |
+        ssh-rsa NOT_DEFINED
+    user_ca: 
+      private_key: |
+        -----BEGIN RSA PRIVATE KEY-----
+        NOT_DEFINED
+        -----END RSA PRIVATE KEY-----
+      public_key: |
+        ssh-rsa NOT_DEFINED
 
   generate_ed25519_keys: False
   absent_ed25519_keys: False
+  absent_ed25519_certs: False
+  absent_ed25519_host_ca: False
+  absent_ed25519_user_ca: False
   provide_ed25519_keys: False
   provide_ed25519_certs: False
+  provide_ed25519_host_ca: False
+  provide_ed25519_user_ca: False
   ed25519:
     private_key: |
       -----BEGIN OPENSSH PRIVATE KEY-----
@@ -151,6 +213,20 @@ openssh:
       ssh-ed25519 NOT_DEFINED
     cert_key: |
       ssh-ed25519 NOT_DEFINED
+    host_ca: 
+      private_key: |
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        NOT_DEFINED
+        -----END OPENSSH PRIVATE KEY-----
+      public_key: |
+        ssh-ed25519 NOT_DEFINED
+    user_ca:
+      private_key: |
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        NOT_DEFINED
+        -----END OPENSSH PRIVATE KEY-----
+      public_key: |
+        ssh-ed25519 NOT_DEFINED
 
   known_hosts:
     # The next 2 settings restrict the set of minions that will be added in
