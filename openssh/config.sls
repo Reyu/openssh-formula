@@ -62,6 +62,7 @@ ssh_host_{{ keyType }}_key.pub:
     - require_in:
       - service: {{ openssh.service }}
 
+{% if salt['pillar.get']('openssh:provide_' ~ keyType ~ '_certs', False) %}
 ssh_host_{{ keyType }}_key-cert.pub:
   file.managed:
     - name: /etc/ssh/ssh_host_{{ keyType }}_key-cert.pub
@@ -70,5 +71,6 @@ ssh_host_{{ keyType }}_key-cert.pub:
     - mode: 600
     - require_in:
       - service: {{ openssh.service }}
+{% endif %}
 {% endif %}
 {% endfor %}
